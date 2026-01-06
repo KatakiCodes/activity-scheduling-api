@@ -6,15 +6,17 @@ namespace activity_scheduling.domain.Entities
     {
         public string Name { get; private set; }
         public DateTime StartTime { get; private set; }
+        public DateTime ScheduleTime { get; private set; }
         public DateTime EndTime { get; private set; }
         public string Description { get; private set; }
         public EActivityState State { get; private set; }
 
-        public Activity(Guid id, string name, DateTime startTime, DateTime endTime, string description, EActivityState state)
+        public Activity(Guid id, string name, DateTime startTime, DateTime scheduleTime, DateTime endTime, string description, EActivityState state)
             : base(id)
         {
             Name = name;
             StartTime = startTime;
+            ScheduleTime = scheduleTime;
             EndTime = endTime;
             Description = description;
             State = state;
@@ -22,8 +24,10 @@ namespace activity_scheduling.domain.Entities
 
         public Activity(string name, DateTime startTime, DateTime endTime, string description)
         {
+
             Name = name;
             StartTime = startTime;
+            ScheduleTime = DateTime.UtcNow;
             EndTime = endTime;
             Description = description;
             State = EActivityState.SCHEDULED;
