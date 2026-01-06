@@ -4,11 +4,11 @@ namespace activity_scheduling.domain.Entities
 {
     public class Activity : Entity
     {
-        public string Name { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public string Description { get; set; }
-        public EActivityState State { get; set; }
+        public string Name { get; private set; }
+        public DateTime StartTime { get; private set; }
+        public DateTime EndTime { get; private set; }
+        public string Description { get; private set; }
+        public EActivityState State { get; private set; }
 
         public Activity(Guid id, string name, DateTime startTime, DateTime endTime, string description, EActivityState state)
             : base(id)
@@ -50,6 +50,21 @@ namespace activity_scheduling.domain.Entities
         {
             EndTime = EndTime.AddDays(daysToExtend);
             State = EActivityState.EXTENDED;
+        }
+        public void AnticipateActivityInMinutes(int minutesToAnticipate)
+        {
+            EndTime = EndTime.AddMinutes(-minutesToAnticipate);
+            State = EActivityState.ANTICIPATED;
+        }
+        public void AnticipateActivityInHours(int hoursToAnticipate)
+        {
+            EndTime = EndTime.AddHours(-hoursToAnticipate);
+            State = EActivityState.ANTICIPATED;
+        }
+        public void AnticipateActivityInDays(int daysToAnticipate)
+        {
+            EndTime = EndTime.AddDays(-daysToAnticipate);
+            State = EActivityState.ANTICIPATED;
         }
     }
 }

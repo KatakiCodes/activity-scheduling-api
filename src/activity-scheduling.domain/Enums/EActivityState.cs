@@ -6,6 +6,7 @@ namespace activity_scheduling.domain.Enums
         SCHEDULED = 1,
         COMPLETED = 2,
         EXTENDED = 3,
-        PENDING = 4 
+        ANTICIPATED = 4,
+        PENDING = 5
     }
 }
