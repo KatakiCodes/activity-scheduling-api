@@ -7,7 +7,7 @@ namespace activity_scheduling.domain.Entities
 {
     public class Entity : IEquatable<Entity>
     {
-        Guid Id { get; set; }
+        public Guid Id { get; set; }
 
         public Entity()
         {}
