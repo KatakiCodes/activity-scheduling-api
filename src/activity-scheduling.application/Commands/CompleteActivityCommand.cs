@@ -1,6 +1,8 @@
-    namespace activity_scheduling.application.Commands
+using activity_scheduling.application.Commands.Contracts;
+
+namespace activity_scheduling.application.Commands
 {
-    public record CompleteActivityCommand
+    public record CompleteActivityCommand : ICommand
     {
         public CompleteActivityCommand(Guid id)
         {

@@ -1,6 +1,8 @@
+using activity_scheduling.application.Commands.Contracts;
+
 namespace activity_scheduling.application.Commands
 {
-    public record AntecipateActivityInDaysCommand
+    public record AntecipateActivityInDaysCommand : ICommand
     {
         public AntecipateActivityInDaysCommand(Guid id, int daysToAntecipate)
         {

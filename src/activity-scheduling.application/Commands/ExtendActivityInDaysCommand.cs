@@ -1,6 +1,8 @@
+using activity_scheduling.application.Commands.Contracts;
+
 namespace activity_scheduling.application.Commands
 {
-    public record ExtendActivityInDaysCommand
+    public record ExtendActivityInDaysCommand : ICommand
     {
         public ExtendActivityInDaysCommand(Guid id, int daysToExtend)
         {

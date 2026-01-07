@@ -1,6 +1,8 @@
+using activity_scheduling.application.Commands.Contracts;
+
 namespace activity_scheduling.application.Commands
 {
-    public record CreateActivityCommand
+    public record CreateActivityCommand : ICommand
     {
         public CreateActivityCommand(string? name, DateTime startTime, DateTime endTime, string? description)
         {

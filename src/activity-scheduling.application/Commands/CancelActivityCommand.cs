@@ -1,6 +1,8 @@
+using activity_scheduling.application.Commands.Contracts;
+
 namespace activity_scheduling.application.Commands
 {
-    public record CancelActivityCommand
+    public record CancelActivityCommand : ICommand
     {
         public CancelActivityCommand(Guid id)
         {
