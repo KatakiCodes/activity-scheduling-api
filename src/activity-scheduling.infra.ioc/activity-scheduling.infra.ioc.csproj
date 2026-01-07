@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../activity-scheduling.application/activity-scheduling.application.csproj" />
+    <ProjectReference Include="../activity-scheduling.infra.data/activity-scheduling.infra.data.csproj" />
+  </ItemGroup>
+
 </Project>
