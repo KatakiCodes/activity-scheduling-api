@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="../activity-scheduling.application/activity-scheduling.application.csproj" />
+    <ProjectReference Include="../activity-scheduling.infra.ioc/activity-scheduling.infra.ioc.csproj" />
   </ItemGroup>
 
 </Project>
