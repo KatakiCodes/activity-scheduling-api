@@ -17,23 +17,27 @@ namespace activity_scheduling.infra.data.Repositories
 
         public Task<IEnumerable<Activity>> GetActivitiesByStateAsync(EActivityState state)
         {
-            var activities = _DbContext.Activities.Where();
+            var activities = _DbContext.Activities.Where(a=>a.State == state).ToList();
             return Task.FromResult(activities.AsEnumerable());
         }
 
         public Task<Activity> GetActivityByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var activity = _DbContext.Activities.FirstOrDefault(a => a.Id == id);
+            return Task.FromResult(activity);
         }
 
         public Task<IEnumerable<Activity>> GetAllActivitiesAsync()
         {
-            throw new NotImplementedException();
+            var activities = _DbContext.Activities.ToList();
+            return Task.FromResult(activities.AsEnumerable());
         }
 
         public Task<Activity> UpdateActivityAsync(Activity activity)
         {
-            throw new NotImplementedException();
+            _DbContext.Update(activity);
+            _DbContext.SaveChangesAsync();
+            return Task.FromResult(activity);
         }
     }
 }
