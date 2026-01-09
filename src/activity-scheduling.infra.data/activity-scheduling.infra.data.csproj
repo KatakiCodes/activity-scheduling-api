@@ -17,6 +17,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.inmemory" Version="9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.sqlite" Version="9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.tools" Version="9">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

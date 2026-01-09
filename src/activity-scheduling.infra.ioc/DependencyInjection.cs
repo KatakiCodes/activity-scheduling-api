@@ -8,6 +8,7 @@ namespace activity_scheduling.infra.ioc
         {
             services.ConfigureDbContextService();
             services.ConfigureRepositoryServices();
+            services.ConfigureMediatr();
             services.ConfigureSwaggerService();
         }
     }

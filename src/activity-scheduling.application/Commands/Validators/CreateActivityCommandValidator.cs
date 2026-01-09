@@ -1,3 +1,4 @@
+using activity_scheduling.application.Commands.CreateActivity;
 using FluentValidation;
 
 namespace activity_scheduling.application.Commands.Validators

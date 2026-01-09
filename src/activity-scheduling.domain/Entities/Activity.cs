@@ -70,5 +70,9 @@ namespace activity_scheduling.domain.Entities
             EndTime = EndTime.AddDays(-daysToAnticipate);
             State = EActivityState.ANTICIPATED;
         }
+        public void SetAsPending()
+        {
+            State = EActivityState.PENDING;
+        }
     }
 }
