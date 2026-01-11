@@ -27,7 +27,7 @@ namespace activity_scheduling.domain.Entities
 
             Name = name;
             StartTime = startTime;
-            ScheduleTime = DateTime.UtcNow;
+            ScheduleTime = DateTime.Now;
             EndTime = endTime;
             Description = description;
             State = EActivityState.SCHEDULED;

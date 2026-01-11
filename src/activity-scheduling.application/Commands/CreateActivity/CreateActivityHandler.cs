@@ -24,10 +24,13 @@ namespace activity_scheduling.application.Commands.CreateActivity
 
             var getAllActivities = await _ActivityRepository.GetAllActivitiesAsync();
 
-            var filterActivityByState = getAllActivities.Where(a => a.State == EActivityState.SCHEDULED && a.State == EActivityState.PENDING);
+            var filterActivityByState = getAllActivities.Where(a => a.State == EActivityState.SCHEDULED ||a.State == EActivityState.PENDING);
 
             var conflictingActivity = await SharedFunctions.CheckTimeConflict(filterActivityByState, activity);
 
+            if(conflictingActivity.Any())
+                return new GenericCommandResult(false, $"Esta atividade conlita com outra(s) {conflictingActivity.Count()} atividade(s)",null, EStatusCodes.BADREQUEST);
+                
             var creationResult = await _ActivityRepository.CreateActivityAsync(activity);
 
             return new GenericCommandResult(true, "Atividade criada com sucesso", creationResult, EStatusCodes.CREATED);
