@@ -14,6 +14,17 @@ namespace activity_scheduling.infra.ioc
         {
             services.AddMediatR(option=>option.RegisterServicesFromAssemblies(typeof(CreateActivityCommand).Assembly));
         }
-    
+        public static void ConfigureCors(this IServiceCollection services)
+        {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
+        }
     }
 }
