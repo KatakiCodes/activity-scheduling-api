@@ -11,13 +11,12 @@ namespace activity_scheduling.application.Queries.Shared
 
         public async Task SetAsPendingWhenStarts(Activity activity)
         {
-            if ((activity.StartTime <= DateTime.UtcNow) && (activity.EndTime > activity.StartTime))
-                if (activity.State == EActivityState.SCHEDULED)
-                {       
-                    activity.SetAsPending();
-                    await _ActivityRepository.UpdateActivityAsync(activity);
+            if ((activity.StartTime < DateTime.Now) && (activity.State == EActivityState.SCHEDULED))
+            {
+                activity.SetAsPending();
+                await _ActivityRepository.UpdateActivityAsync(activity);
 
-                }
+            }
         }
     }
 }
