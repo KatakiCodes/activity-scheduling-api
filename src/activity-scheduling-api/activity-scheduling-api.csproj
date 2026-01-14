@@ -10,7 +10,16 @@
 
   <ItemGroup>
     <ProjectReference Include="../activity-scheduling.application/activity-scheduling.application.csproj" />
+    <ProjectReference Include="../activity-scheduling.infra.data/activity-scheduling.infra.data.csproj" />
     <ProjectReference Include="../activity-scheduling.infra.ioc/activity-scheduling.infra.ioc.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
