@@ -7,8 +7,10 @@
     <RootNamespace>activity_scheduling_api</RootNamespace>
   </PropertyGroup>
 
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.10" />
+    <ProjectReference Include="../activity-scheduling.application/activity-scheduling.application.csproj" />
+    <ProjectReference Include="../activity-scheduling.infra.ioc/activity-scheduling.infra.ioc.csproj" />
   </ItemGroup>
 
 </Project>

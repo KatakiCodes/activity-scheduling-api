@@ -7,4 +7,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../activity-scheduling.application/activity-scheduling.application.csproj" />
+    <ProjectReference Include="../activity-scheduling.infra.data/activity-scheduling.infra.data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="mediatr" Version="14.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
+  </ItemGroup>
+
 </Project>
