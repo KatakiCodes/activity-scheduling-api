@@ -8,11 +8,11 @@ namespace activity_scheduling.infra.ioc
     {
         public static void ConfigureDbContextService(this IServiceCollection services)
         {
-            // DbContext configuration goes here
-            // services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=activities.db"));
+            //Sqlite configuration goes here
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=activities.db"));
 
             //For test
-            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("Data Source=activities.db"));
+            // services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("Data Source=activities.db"));
         }
     }
 }
