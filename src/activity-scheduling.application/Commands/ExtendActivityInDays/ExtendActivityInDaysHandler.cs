@@ -25,9 +25,8 @@ namespace activity_scheduling.application.Commands.ExtendActivityInDays
 
             var conflictingActivity = await SharedFunctions.CheckTimeConflict(filterActivityByState, activity);
 
-            if (conflictingActivity is not null)
+            if (conflictingActivity.Any())
                 return new GenericCommandResult(false, $"Conflito de horário com ${conflictingActivity.Count()} atividades", null, EStatusCodes.BADREQUEST);
-
             await _ActivityRepository.UpdateActivityAsync(activity);
             return new GenericCommandResult(true, "Periodo de atividade extendida com sucesso", activity, EStatusCodes.OK);
         }

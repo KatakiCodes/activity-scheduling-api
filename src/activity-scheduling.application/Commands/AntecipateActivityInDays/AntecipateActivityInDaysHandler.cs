@@ -25,7 +25,7 @@ namespace activity_scheduling.application.Commands.AntecipateActivityInDays
 
             var conflictingActivity = await SharedFunctions.CheckTimeConflict(filterActivityByState, activity);
 
-            if (conflictingActivity is not null)
+            if (conflictingActivity.Any())
                 return new GenericCommandResult(false, $"Conflito de horário com ${conflictingActivity.Count()} atividades", null, EStatusCodes.BADREQUEST);
 
             await _ActivityRepository.UpdateActivityAsync(activity);
