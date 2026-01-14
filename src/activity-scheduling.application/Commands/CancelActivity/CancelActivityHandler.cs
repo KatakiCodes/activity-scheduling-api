@@ -1,4 +1,5 @@
 using activity_scheduling.application.Enums;
+using activity_scheduling.domain.Enums;
 using activity_scheduling.domain.Repositories.Contracts;
 using MediatR;
 
@@ -11,8 +12,10 @@ namespace activity_scheduling.application.Commands.CancelActivity
         public async Task<GenericCommandResult> Handle(CancelActivityCommand request, CancellationToken cancellationToken)
         {
             var activity = await _ActivityRepository.GetActivityByIdAsync(request.Id);
-            if(activity == null)
+            if (activity == null)
                 return new GenericCommandResult(false, "Atividade não encontrada", null, EStatusCodes.NOTFOUND);
+            else if (activity.State == EActivityState.COMPLETED)
+                return new GenericCommandResult(false, "Esta atividade já foi concluida", null, EStatusCodes.BADREQUEST);
             activity.CancelActivity();
             await _ActivityRepository.UpdateActivityAsync(activity);
             return new GenericCommandResult(true, "Atividade cancelada com sucesso", activity, EStatusCodes.OK);
